@@ -1,10 +1,27 @@
 import { useEffect, useState } from "react"
-import { GenreResponseProps, MovieProps } from "../App";
 import { api } from "../services/api";
 import { Button } from "./Button";
 import { Content } from "./Content";
 
-export function SideBar(props: GenreResponseProps) {
+export interface GenreResponseProps {
+    id: number;
+    name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
+    title: string;
+}
+
+export interface MovieProps {
+    imdbID: string;
+    Title: string;
+    Poster: string;
+    Ratings: Array<{
+        Source: string;
+        Value: string;
+    }>;
+    Runtime: string;
+}
+
+
+export function SideBar() {
     const [selectedGenreId, setSelectedGenreId] = useState(1);
     const [genres, setGenres] = useState<GenreResponseProps[]>([]);
     const [movies, setMovies] = useState<MovieProps[]>([]);
@@ -45,10 +62,9 @@ export function SideBar(props: GenreResponseProps) {
                 </div>
             </nav>
 
-            {console.log(selectedGenre.title)}
+            {console.log('segundo param: ', selectedGenre)}
 
-            {/* seletedGenre={selectedGenre} */}
-            <Content movies={movies} selectedGenrer={'selectedGenre.title'} />
+            <Content movies={movies} title={selectedGenre} />
         </>
     )
 }

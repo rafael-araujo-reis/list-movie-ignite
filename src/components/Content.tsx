@@ -1,16 +1,14 @@
-import { GenreResponseProps, MovieProps } from "../App";
+import { GenreResponseProps, MovieProps } from "./SideBar";
 import { MovieCard } from "./MovieCard";
 
-export function Content(props: MovieProps, title: any) {
-    // const { seletedGenre } = props
+export function Content(props: MovieProps, seletedGenre: GenreResponseProps) {
     const { movies } = props
-    const { xx } = title
-    console.log(xx)
+    console.log('param recebido: ', seletedGenre)
     return (
         <>
             <div className="container">
                 <header>
-                    <span className="category">Categoria: <span>{'seletedGenre.title'}</span></span>
+                    <span className="category">Categoria: <span>{seletedGenre?.title}</span></span>
                 </header>
                 <main>
                     <div className="movies-list">
