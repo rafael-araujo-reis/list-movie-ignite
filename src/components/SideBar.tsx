@@ -6,7 +6,7 @@ import { Content } from "./Content";
 export interface GenreResponseProps {
     id: number;
     name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
-    title: string;
+    __title: string;
 }
 
 export interface MovieProps {
@@ -21,10 +21,10 @@ export interface MovieProps {
 }
 
 export function SideBar() {
+    const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
     const [selectedGenreId, setSelectedGenreId] = useState(1);
     const [genres, setGenres] = useState<GenreResponseProps[]>([]);
     const [movies, setMovies] = useState<MovieProps[]>([]);
-    const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
 
     useEffect(() => {
         api.get<GenreResponseProps[]>('genres')
@@ -61,9 +61,7 @@ export function SideBar() {
                 </div>
             </nav>
 
-            {console.log('segundo param: ', selectedGenre)}
-
-            <Content movies={movies} title={selectedGenre} />
+            <Content movies={movies} />
         </>
     )
 }
