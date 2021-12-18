@@ -1,8 +1,6 @@
-import { GenreResponseProps, MovieProps } from "./SideBar";
+import { MovieProps } from "../App";
 import { MovieCard } from "./MovieCard";
 import { Header } from "./Header";
-
-// declare const selectedGenre2: any;
 
 export function Content(props: MovieProps) {
     const { movies } = props;
