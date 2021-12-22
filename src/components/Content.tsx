@@ -8,7 +8,6 @@ interface ContentProps {
 }
 export function Content({ movies, selectedGenre }: ContentProps) {
 
-    console.log('genre: ', selectedGenre)
     return (
         <div className="container">
             <Header title={selectedGenre} />
