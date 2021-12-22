@@ -45,7 +45,7 @@ export function SideBar() {
                 </div>
             </nav>
 
-            <Content movies={movies} />
+            <Content movies={movies} selectedGenre={selectedGenre} />
         </>
     )
 }

@@ -1,13 +1,17 @@
-import { MovieProps } from "../App";
+import { GenreResponseProps, MovieProps } from "../App";
 import { MovieCard } from "./MovieCard";
 import { Header } from "./Header";
 
-export function Content(props: MovieProps) {
-    const { movies } = props;
+interface ContentProps {
+    movies: MovieProps,
+    selectedGenre: GenreResponseProps
+}
+export function Content({ movies, selectedGenre }: ContentProps) {
 
+    console.log('genre: ', selectedGenre)
     return (
         <div className="container">
-            <Header title={'selectedGenre'} />
+            <Header title={selectedGenre} />
             <main>
                 <div className="movies-list">
                     {movies.map(movie => (
